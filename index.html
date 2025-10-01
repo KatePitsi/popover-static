@@ -9,62 +9,239 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Example popover - Katerina Pitsigavdaki</title>
 
-        <!-- Swiper slider -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-
         <!-- Style -->
         <link rel="stylesheet" href="css/style.min.css" />
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 
     </head>
 
     
-    <body class="antialiased">
+    <body class="antialiased" id="body">
 
         <header class="header" id="header">
-            <h1 class="font-bold text-xl">Exaples popover & dialog</h1>
+            <h1 class="">Exaples popover & dialog</h1>
         </header>
 
         <main>
+          <div class="grid">
+            <!-- 0. Dropdown χωρίς native -->
+            <section class="items">
+              <h2>0. Απλό Dropdown Menu Χωρις native popover behavior</h2>
+              <div class="dropdown">
+                <button class="main-btn" data-toggle="dropdown0">Menu</button>
+                <div class="dropdown-menu" id="dropdown0">
+                  <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
 
-<section class="items">
-  <h2>Dropdown Menu</h2>
-  <button class="main-btn dropdown-btn">Menu</button>
-  <nav class="dropdown">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-    </ul>
-  </nav>
-</section>
+            <!-- 1. Dropdown -->
+            <section class="items">
+              <h2>1. Απλό Dropdown Menu</h2>
+              <button class="main-btn" data-toggle="dropdown1">Menu</button>
+              <nav class="dropdown-menu" id="dropdown1">
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Services</a></li>
+                </ul>
+              </nav>
+            </section>
 
-<section class="items">
-  <h2>Mega Menu</h2>
-  <button class="main-btn mega-btn">Mega Menu</button>
-  <div class="mega-menu">
-    <div>
-      <h3>Products</h3>
-      <ul><li><a href="#">Laptops</a></li></ul>
-    </div>
-  </div>
-</section>
+            <!-- 2. Mega Menu -->
+            <section class="items">
+              <h2>2. Mega Menu</h2>
+              <button class="main-btn" data-toggle="mega-menu">Mega Menu</button>
+              <div class="mega-menu" id="mega-menu">
+                <div>
+                  <h3>Products</h3>
+                  <ul>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Phones</a></li>
+                    <li><a href="#">Accessories</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>Resources</h3>
+                  <ul>
+                    <li><a href="#">Docs</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>Company</h3>
+                  <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
 
-<section class="items">
-  <h2>Tooltip</h2>
-  <button class="main-btn tooltip-btn">ℹ</button>
-  <div class="tooltip">Αυτό είναι tooltip</div>
-</section>
+            <!-- 3. Tooltip -->
+            <section class="items">
+              <h2>3. Tooltip</h2>
+              <button class="main-btn tooltip-btn" data-tooltip="Αυτό είναι tooltip με Vanilla JS!">i</button>
+            </section>
 
-<section class="items">
-  <h2>Modal Dialog</h2>
-  <button class="main-btn dialog-btn">Open Dialog</button>
-  <dialog id="myDialog">
-    <p>Αυτό είναι modal!</p>
-    <form method="dialog">
-      <button>OK</button>
-    </form>
-  </dialog>
-</section>
+            <!-- 4. Cart Popover -->
+            <section class="items">
+              <h2>4. Cart Preview (Popover)</h2>
+              <button class="main-btn" data-toggle="cart-popover">Cart (2)</button>
+              <div class="cart-popover" id="cart-popover">
+                <p class="font-bold">Your cart</p>
+                <ul>
+                  <li><span>Laptop</span><span>$999</span></li>
+                  <li><span>Mouse</span><span>$49</span></li>
+                </ul>
+                <button class="checkout-btn">Checkout</button>
+              </div>
+            </section>
+
+            <!-- 5. Dialog -->
+            <section class="items">
+              <h2>5. Modal Dialog (Native)</h2>
+              <button class="main-btn" id="openDialog">Open Dialog</button>
+              <dialog id="myDialog">
+                <h2>Native Dialog</h2>
+                <p>Αυτό είναι modal χωρίς custom JS libraries 🎉</p>
+                <form method="dialog">
+                  <button>Cancel</button>
+                  <button>OK</button>
+                </form>
+              </dialog>
+            </section>
+          </div>
+
+        <hr class="my-8" />
+
+            <section class="details w-full max-w-7xl mx-auto my-20">
+
+                <div class="why-used-popover grid grid-cols-1 md:grid-cols-2 gap-12 content-center relative my-20">
+                    <div class="left">
+                        <p class="font-bold text-xl pb-2">Γιατί popover?</p>
+                        <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popover είναι κυρίως για βελτιωμένη εμπειρία χρήστη (UX) και καλύτερη διαχείριση πληροφοριών στη σελίδα.</p>
+                        <p class="italic pt-6 text-sm">Το popover είναι <span class="font-bold">πειραματικό</span> και διαφορετικά browsers το υλοποιούν διαφορετικά.<br> Η θέση και το layout του popover υπολογίζονται από τον browser και δεν μπορείς να τα override πλήρως με CSS. <br>Οπότε δεν υπάρχει "universal CSS" που να κάνει το native popover να εμφανίζεται ακριβώς ίδιο σε Chrome, Firefox και Safari. Οπότε για positioning περναμε JS.</p>
+                    </div>
+                    <div class="right">
+                        <p>1. Εμφάνιση πληροφοριών χωρίς ανανέωση σελίδας</p>
+                        <p>2. Εστίαση στο context</p>
+                        <p>3. Δυνατότητα αλληλεπίδρασης</p>
+                        <p>4. Μικρότερο “οπτικό φορτίο”</p>
+                    </div>
+                </div>
+
+                <hr class="my-8" />
+
+                <div class="why-used-popover grid grid-cols-1 md:grid-cols-2 gap-12 content-center relative my-20">
+                    <div class="left">
+                        <p class="font-bold text-xl pb-2">Γιατί dialog?</p>
+                        <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα dialog είναι κυρίως όταν χρειάζεσαι την πλήρη προσοχή του χρήστη και θέλεις να του δώσεις επιλογές ή να συλλέξεις δεδομένα.</p>
+                    </div>
+                    <div class="right">
+                        <p>1. Εστίαση στην ενέργεια – ο χρήστης σταματά ό,τι κάνει και επικεντρώνεται στο dialog.</p>
+                        <p>2. Δυνατότητα εισαγωγής δεδομένων – φόρμες, επιβεβαιώσεις ή επιλογές γίνονται με πιο ξεκάθαρο τρόπο.</p>
+                        <p>3. Σαφής ροή εργασίας – το dialog καθοδηγεί τον χρήστη σε ένα συγκεκριμένο επόμενο βήμα.</p>
+                        <p>4. Υποχρεωτική αλληλεπίδραση – ο χρήστης πρέπει να το κλείσει ή να επιλέξει κάτι για να συνεχίσει.</p>
+                    </div>
+                </div>
+
+                <hr class="my-8" />
+
+                <div class="why-used-popover grid grid-cols-1 md:grid-cols-2 gap-12 content-center relative my-20">
+                    <div class="left">
+                        <p class="font-bold text-xl pb-2">Γιατί popup?</p>
+                        <p class="">Ο λόγος που μπορείς να χρησιμοποιήσεις ένα popup είναι κυρίως για άμεση ειδοποίηση ή γρήγορη δράση που δεν απαιτεί μεγάλη αλληλεπίδραση.</p>
+                    </div>
+                    <div class="right">
+                        <p>1. Ειδοποιήσεις και προειδοποιήσεις – ενημερώνεις άμεσα τον χρήστη για κάτι σημαντικό.</p>
+                        <p>2. Εμφάνιση περιεχομένου πάνω από τη σελίδα – χωρίς να χρειάζεται να αλλάξει context ή να κάνει scroll.</p>
+                        <p>3. Γρήγορες ενέργειες – κουμπιά, links ή επιλογές που εκτελούνται άμεσα.</p>
+                        <p>4. Ορατότητα – τραβάει το μάτι του χρήστη αμέσως, κάτι χρήσιμο σε επείγουσες περιπτώσεις.</p>
+                    </div>
+                </div>
+
+                <hr class="my-8" />
+
+                <div class=""
+                    x-data="
+                    { rows: [
+                            {
+                                feature: 'Τρόπος εμφάνισης',
+                                popover: 'Μέσα στη σελίδα, σαν overlay πάνω από το περιεχόμενο',
+                                modal: 'Μέσα στη σελίδα, σαν overlay, αλλά μπλοκάρει την υπόλοιπη αλληλεπίδραση',
+                                popup: 'Σε νέο παράθυρο/καρτέλα του browser'
+                            },
+                            {
+                                feature: 'HTML/DOM',
+                                popover: 'Στοιχείο DOM (π.χ. &lt;div popover&gt;)',
+                                modal: 'Στοιχείο DOM (π.χ. &lt;dialog&gt;)',
+                                popup: 'Ξεχωριστό παράθυρο, εκτός DOM'
+                            },
+                            {
+                                feature: 'Έλεγχος',
+                                popover: 'Με attributes ή JS (showPopover)',
+                                modal: 'Με JS (showModal, close)',
+                                popup: 'Με JS (window.open, window.close)'
+                            },
+                            {
+                                feature: 'Κλείσιμο',
+                                popover: 'Light dismiss (κλικ έξω, Esc) αν είναι auto',
+                                modal: 'Συνήθως με explicit action',
+                                popup: 'Από χρήστη ή με JS'
+                            },
+                            {
+                                feature: 'Εμπειρία χρήστη',
+                                popover: 'Ελαφρύ, μη-παρεμβατικό',
+                                modal: 'Κλειδώνει την υπόλοιπη σελίδα',
+                                popup: 'Ξεχωριστό, σαν άλλη εφαρμογή'
+                            },
+                            {
+                                feature: 'Χρήσεις',
+                                popover: 'Dropdowns, tooltips, info panels',
+                                modal: 'Confirm dialogs, φόρμες',
+                                popup: 'Login flows, third-party content'
+                            },
+                            {
+                                feature: 'Popup blockers',
+                                popover: 'Δεν μπλοκάρονται',
+                                modal: 'Δεν μπλοκάρονται',
+                                popup: 'Συχνά μπλοκάρονται'
+                            },
+                            {
+                                feature: 'Προσβασιμότητα',
+                                popover: 'Χρειάζεται χειρισμό (ARIA) αλλά έχει στήριξη',
+                                modal: 'Υποστηρίζεται (ειδικά &lt;dialog&gt;)',
+                                popup: 'Εξαρτάται από το περιεχόμενο'
+                            }
+                        ]
+                    }"
+                    class="space-y-4"
+                >
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 p-4 border-b border-border">
+                        <p class="font-bold text-xl">Χαρακτηριστικό</p>
+                        <p class="font-bold text-xl">Popover</p>
+                        <p class="font-bold text-xl">Dialog</p>
+                        <p class="font-bold text-xl">Popup</p>
+                    </div>
+
+                    <template x-for="(row, i) in rows" :key="i">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 p-4 border-b border-border last:border-0">
+                            <p class="text-left font-bold" x-text="row.feature"></p>
+                            <p class="text-left" x-text="row.popover"></p>
+                            <p class="text-left" x-text="row.modal"></p>
+                            <p class="text-left" x-text="row.popup"></p>
+                        </div>
+                    </template>
+                </div>
+            </section>
 
         </main>
 

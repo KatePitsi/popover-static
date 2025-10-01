@@ -2,34 +2,32 @@
 const year = new Date().getFullYear();
 document.getElementById("year").textContent = year;
 
-// Dropdown
-document.querySelectorAll(".dropdown-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const menu = btn.nextElementSibling;
-    menu.classList.toggle("active");
+// Dropdowns / Mega Menu / Cart
+document.querySelectorAll("[data-toggle]").forEach(btn => {
+  btn.addEventListener("click", e => {
+    const targetId = btn.getAttribute("data-toggle");
+    const target = document.getElementById(targetId);
+    target.classList.toggle("active");
   });
 });
 
-// Mega Menu
-const megaBtn = document.querySelector(".mega-btn");
-const megaMenu = document.querySelector(".mega-menu");
-if (megaBtn) {
-  megaBtn.addEventListener("click", () => {
-    megaMenu.classList.toggle("active");
-  });
-}
-
 // Tooltip
-const tooltipBtn = document.querySelector(".tooltip-btn");
-const tooltip = document.querySelector(".tooltip");
-if (tooltipBtn) {
-  tooltipBtn.addEventListener("mouseenter", () => tooltip.classList.add("active"));
-  tooltipBtn.addEventListener("mouseleave", () => tooltip.classList.remove("active"));
-}
+const tooltipBtns = document.querySelectorAll(".tooltip-btn");
+tooltipBtns.forEach(btn => {
+  let tooltip;
+  btn.addEventListener("mouseenter", () => {
+    tooltip = document.createElement("div");
+    tooltip.className = "tooltip";
+    tooltip.innerText = btn.dataset.tooltip;
+    btn.appendChild(tooltip);
+  });
+  btn.addEventListener("mouseleave", () => {
+    if (tooltip) tooltip.remove();
+  });
+});
 
-// Modal Dialog
+// Native dialog
 const dialog = document.getElementById("myDialog");
-const openDialog = document.querySelector(".dialog-btn");
-if (openDialog) {
-  openDialog.addEventListener("click", () => dialog.showModal());
-}
+document.getElementById("openDialog").addEventListener("click", () => {
+  dialog.showModal();
+});
