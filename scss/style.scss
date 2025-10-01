@@ -1,19 +1,93 @@
-// Start of global styles
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:ital,opsz@0,9..40;1,9..40&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+$main : #fcf8f5; 
+$body-text: #3C3D46;
+$border: #e5e7eb;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 html {
     scroll-behavior: smooth;
-}
-body {
-    @media all and (min-width: 376px) {
-        padding: 0 20px;
-    }
-}
 
-section {
-    width: 100%;
-    max-width: 1500px;
-    margin: 2rem auto;
-    @media all and (min-width: 1440px) {
-        max-width: 80%;
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    body {
+        background-color: $main;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+
+        .header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+                h1 {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+            }
+
+            .main-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                border-radius: 8px;
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+                border: none;
+                transition: background 0.2s ease;
+
+                &:hover {
+                    background: darken($main, 10%);
+                }
+            }
+
+            .dropdown,
+            .mega-menu,
+            .tooltip,
+            .popover,
+            .dialog {
+                display: none;
+                position: absolute;
+                background: white;
+                border-radius: 6px;
+                padding: 1rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+
+                &.active {
+                    display: block;
+                }
+            }
+
+        footer {
+            position: fixed;
+            background-color: $main;
+            bottom: 0;
+            left: 0; 
+            width: 100%;
+            .inner {
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                justify-content: space-between;
+                text-align: center;
+                font-weight: 400;
+                @media all and (min-width: 768px) {
+                    flex-direction: row;
+                    text-align: left;
+                }
+            }
+        }
     }
 }

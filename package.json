@@ -1,16 +1,19 @@
 {
   "name": "popover-static",
   "version": "1.0.0",
-  "description": "sections",
+  "description": "popover-static",
   "scripts": {
     "sass": "sass --watch scss/style.scss:css/style.min.css --style=compressed",
+    "js": "chokidar 'js/app.js' -c \"terser js/app.js -o js/app.min.js -c -m\"",
     "server": "lite-server",
-    "start": "concurrently \"npm run sass\" \"npm run server\""
+    "start": "concurrently \"npm run sass\" \"npm run js\" \"npm run server\""
   },
   "devDependencies": {
+    "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
     "lite-server": "^2.6.1",
-    "sass": "^1.69.0"
+    "sass": "^1.69.0",
+    "terser": "^5.31.0"
   },
   "dependencies": {
     "swiper": "^11.2.10"

@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Example Sections - Katerina Pitsigavdaki</title>
+        <title>Example popover - Katerina Pitsigavdaki</title>
 
         <!-- Swiper slider -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
@@ -20,37 +20,63 @@
     
     <body class="antialiased">
 
+        <header class="header" id="header">
+            <h1 class="font-bold text-xl">Exaples popover & dialog</h1>
+        </header>
+
         <main>
 
-            <h1 class="sr-only">Heading</h1>
+<section class="items">
+  <h2>Dropdown Menu</h2>
+  <button class="main-btn dropdown-btn">Menu</button>
+  <nav class="dropdown">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+    </ul>
+  </nav>
+</section>
 
-        </main>s
+<section class="items">
+  <h2>Mega Menu</h2>
+  <button class="main-btn mega-btn">Mega Menu</button>
+  <div class="mega-menu">
+    <div>
+      <h3>Products</h3>
+      <ul><li><a href="#">Laptops</a></li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="items">
+  <h2>Tooltip</h2>
+  <button class="main-btn tooltip-btn">ℹ</button>
+  <div class="tooltip">Αυτό είναι tooltip</div>
+</section>
+
+<section class="items">
+  <h2>Modal Dialog</h2>
+  <button class="main-btn dialog-btn">Open Dialog</button>
+  <dialog id="myDialog">
+    <p>Αυτό είναι modal!</p>
+    <form method="dialog">
+      <button>OK</button>
+    </form>
+  </dialog>
+</section>
+
+        </main>
+
+        <footer class="footer" id="footer">
+            <div class="inner">
+                <p class="">© <span id="year" class=""></span> All rights reserved.</p>
+                <p class="">KateP.</p>
+            </div>
+        </footer>
 
         <!-- JS -->
-        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script type="text/javascript">
-            const swiper = new Swiper('.mySwiper', {
-                slidesPerView: 1,
-                loop: true,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            });
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.3
-            });
-            document.querySelectorAll('.fade-in, .fade-left').forEach(el => {
-                observer.observe(el);
-            });
-        </script>
+        <script src="js/app.min.js"></script>
 
     </body>
 
