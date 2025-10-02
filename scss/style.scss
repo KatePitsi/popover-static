@@ -25,11 +25,17 @@ html {
         font-optical-sizing: auto;
         font-weight: 300;
         font-style: normal;
+        padding-bottom: 9rem;
+        line-height: 2;
+    
+        header, main {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
         .header {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
             h1 {
                 font-size: 1.5rem;
                 font-weight: bold;
@@ -41,7 +47,9 @@ html {
             background-color: $main;
             bottom: 0;
             left: 0; 
+            right: 0;
             width: 100%;
+            padding: 20px;
             .inner {
                 padding: 15px;
                 display: flex;
@@ -57,80 +65,62 @@ html {
             }
         }
 
-                                  
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
+        main {
+            .italic {
+                font-style: italic;
+            }
 
-        .items {
-            position: relative;
-            h2 {
-                font-size: 1.2rem;
-                margin-bottom: 1rem;
+            p {
+                margin: 1rem auto;     
             }
         }
 
-        .main-btn {
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-            background: #444;
-            color: #fff;
-            border: none;
-            cursor: pointer;
+        .why-used-popover {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 3rem;
+            align-content: center;
+            position: relative;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+            @media (min-width: 768px) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .title {
+                font-weight: bold;
+                padding-bottom: 15px;
+                font-size: 20px;
+            }
         }
 
-        .dropdown-menu, .mega-menu, .cart-popover {
-            display: none;
-            position: absolute;
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 1rem;
-            z-index: 50;
-        }
-
-        .dropdown-menu.active,
-        .mega-menu.active,
-        .cart-popover.active {
-            display: block;
-        }
-
-        .mega-menu {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            gap: 2rem;
-        }
-
-        .tooltip {
-            position: absolute;
-            background: black;
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            transform: translateY(-120%);
-        }
-
-        .cart-popover {
-            width: 250px;
-            top: 3rem;
-            left: 0;
-        }
-
-        .checkout-btn {
-            margin-top: 1rem;
-            width: 100%;
-            background: orange;
-            color: white;
-            border: none;
-            padding: 0.6rem;
-            border-radius: 6px;
+        .table-details {
+            margin: 3rem auto;
+            .table-header {
+                display: grid;
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+                gap: 2rem;
+                padding: 15px;
+                border-bottom: 1px solid #e5e7eb;
+                text-align: left;
+                font-weight: bold;
+                @media (min-width: 768px) {
+                   grid-template-columns: repeat(4, minmax(0, 1fr));
+                }
+            }   
+            .table-body {
+                display: grid;
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+                gap: 2rem;
+                padding: 15px;
+                border-bottom: 1px solid #e5e7eb;
+                text-align: left;
+                @media (min-width: 768px) {
+                   grid-template-columns: repeat(4, minmax(0, 1fr));
+                }
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
         }
     }
 }
